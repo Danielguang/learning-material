@@ -70,3 +70,21 @@ listNode.appendChild(frag);
 - 如果 `compareFunction(a, b)` 等于 0 ， a 和 b 的相对位置不变
 - 如果 `compareFunction(a, b)` 大于 0 ， b 会被排列到 a 之前。
 
+
+
+### 数字的格式化
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+
+``` javascript
+new Intl.NumberFormat("en-US", {
+
+  style: "decimal",
+
+  minimumFractionDigits: 2,
+
+});
+```
+
+
+
