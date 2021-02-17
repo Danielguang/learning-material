@@ -8,3 +8,10 @@ class LeftMenuProps extends Vue {
 // ! 代表null or undefined
 ```
 
+#### typescript for event element
+
+``` javascript
+const target = this.$refs.input as HTMLInputElement;
+target.value // can read it
+```
+
