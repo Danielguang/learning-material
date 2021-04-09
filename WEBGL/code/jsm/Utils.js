@@ -55,6 +55,14 @@ function glToCssPos({ x, y }, { width, height }) {
   }
 }
 
+function glToCanvasPos({ x, y }, { width, height }) {
+      const [halfWidth, halfHeight] = [width / 2, height / 2];
+      return {
+        x: halfWidth + x * halfWidth,
+        y: halfHeight - y * halfHeight
+      }
+    }
+
 //线性比例尺
 function ScaleLinear(ax, ay, bx, by) {
   const delta = {
@@ -68,4 +76,10 @@ function ScaleLinear(ax, ay, bx, by) {
   };
 }
 
-export { initShaders, getMousePosInWebgl, glToCssPos, ScaleLinear };
+export {
+  initShaders,
+  getMousePosInWebgl,
+  glToCssPos,
+  glToCanvasPos,
+  ScaleLinear
+};

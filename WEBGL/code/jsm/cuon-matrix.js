@@ -588,31 +588,36 @@ Matrix4.prototype.rotate = function(angle, x, y, z) {
 Matrix4.prototype.setLookAt = function(eyeX, eyeY, eyeZ, centerX, centerY, centerZ, upX, upY, upZ) {
     var e, fx, fy, fz, rlf, sx, sy, sz, rls, ux, uy, uz;
 
+    //目标位减视点
     fx = centerX - eyeX;
     fy = centerY - eyeY;
     fz = centerZ - eyeZ;
 
-    // Normalize f.
+    // Normalize f. 
+    // f归一化
     rlf = 1 / Math.sqrt(fx*fx + fy*fy + fz*fz);
     fx *= rlf;
     fy *= rlf;
     fz *= rlf;
 
     // Calculate cross product of f and up.
+    // f 和up 的叉乘
     sx = fy * upZ - fz * upY;
     sy = fz * upX - fx * upZ;
     sz = fx * upY - fy * upX;
 
     // Normalize s.
+    // s归一化
     rls = 1 / Math.sqrt(sx*sx + sy*sy + sz*sz);
     sx *= rls;
     sy *= rls;
     sz *= rls;
 
     // Calculate cross product of s and f.
+    //s和f的叉乘,相当于归一化的up
     ux = sy * fz - sz * fy;
     uy = sz * fx - sx * fz;
-    uz = sx * fy - sy * fx;
+    uz = sx * fy - sy * fx;                   
 
     // Set to this.
     e = this.elements;
